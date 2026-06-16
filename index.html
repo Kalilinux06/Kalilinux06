@@ -26,12 +26,12 @@
 
     header {
       background: radial-gradient(circle at top left, #e63946, #f4a261, #f9c74f);
-      padding: 2.8rem 1rem;
+      padding: clamp(2rem, 5vw, 3.5rem) 1rem;
       text-align: center;
       color: #fff;
       font-family: 'Fredoka One', cursive;
-      font-size: 3.5rem;
-      letter-spacing: 3px;
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+      letter-spacing: 2px;
       text-shadow: 4px 4px 12px rgba(0,0,0,0.3);
       box-shadow: 0 6px 25px rgba(0,0,0,0.3);
       border-bottom: 6px solid #f9c74f;
@@ -42,7 +42,7 @@
       position: absolute;
       top: 10px;
       left: 20px;
-      width: 230px;
+      width: clamp(80px, 15vw, 230px);
       height: auto;
       border:none;
       box-shadow: none;
@@ -62,24 +62,27 @@
       display: flex;
       justify-content: center;
       list-style: none;
-      padding: 1rem 0;
-      gap: 1.2rem;
+      padding: clamp(0.8rem, 2vw, 1.5rem) 0;
+      gap: clamp(0.8rem, 2vw, 1.5rem);
       flex-wrap: wrap;
+      align-items: center;
     }
 
     nav ul li a {
       color: #fff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.15rem;
-      padding: 0.7rem 1.6rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+      padding: clamp(0.6rem, 2vw, 1rem) clamp(1.2rem, 4vw, 2rem);
       border-radius: 30px;
       background: rgba(255, 255, 255, 0.15);
       transition: all 0.35s ease;
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+      display: inline-block;
     }
 
-    nav ul li a:hover {
+    nav ul li a:hover,
+    nav ul li a:active {
       background: #e63946;
       box-shadow: 0 8px 20px rgba(230, 57, 70, 0.8);
       transform: translateY(-3px) scale(1.05);
@@ -89,17 +92,19 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 3.5rem;
-      padding: 3rem 1.5rem;
-      max-width: 1024px;
+      gap: clamp(2rem, 5vw, 3.5rem);
+      padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2rem);
+      max-width: min(1200px, 100%);
+      width: 100%;
       margin: auto;
+      box-sizing: border-box;
     }
 
     section {
       background: #fff;
-      border-radius: 30px;
+      border-radius: clamp(15px, 5vw, 30px);
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
-      padding: 3rem 2rem;
+      padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem);
       text-align: center;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       position: relative;
@@ -113,12 +118,13 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(135deg, #f9c74f33, #f4a26133);
-      border-radius: 30px;
+      border-radius: inherit;
       z-index: -1;
       filter: blur(40px);
     }
 
-    section:hover {
+    section:hover,
+    section:active {
       transform: translateY(-10px);
       box-shadow: 0 18px 50px rgba(230, 57, 70, 0.25);
     }
@@ -126,44 +132,49 @@
     h2 {
       color: #e63946;
       font-family: 'Fredoka One', cursive;
-      font-size: 2.6rem;
-      margin-bottom: 1.5rem;
+      font-size: clamp(1.4rem, 4vw, 2.8rem);
+      margin-bottom: clamp(0.8rem, 3vw, 1.8rem);
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+      margin-bottom: clamp(1rem, 3vw, 2rem);
       color: #3c1f00;
+      line-height: 1.6;
     }
 
     img, video {
       max-width: 100%;
-      border-radius: 22px;
-      margin-top: 1.4rem;
+      width: 100%;
+      height: auto;
+      border-radius: clamp(10px, 4vw, 22px);
+      margin-top: clamp(0.8rem, 3vw, 1.6rem);
       box-shadow: 0 6px 18px rgba(244, 162, 97, 0.5);
       transition: transform 0.3s ease;
     }
 
-    img:hover, video:hover {
-      transform: scale(1.03);
+    img:hover, img:active,
+    video:hover, video:active {
+      transform: scale(1.02);
     }
 
     img {
-      border: 6px solid #f4a261;
+      border: clamp(3px, 1vw, 6px) solid #f4a261;
     }
 
     .contact-form input,
     .contact-form textarea {
       width: 100%;
-      padding: 1.1rem;
-      margin-bottom: 1.6rem;
-      border-radius: 18px;
+      padding: clamp(0.8rem, 3vw, 1.2rem);
+      margin-bottom: clamp(1rem, 3vw, 1.8rem);
+      border-radius: clamp(10px, 4vw, 18px);
       border: 2px solid #e63946;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       color: #3c1f00;
       background: #fff9f5;
       transition: border 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
     }
 
     .contact-form input:focus,
@@ -177,29 +188,31 @@
       background: linear-gradient(135deg, #e63946, #f4a261);
       color: #fff;
       font-weight: 700;
-      font-size: 1.25rem;
-      padding: 1rem 2.4rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+      padding: clamp(0.8rem, 3vw, 1.2rem) clamp(1.8rem, 5vw, 2.8rem);
       border: none;
       border-radius: 35px;
       cursor: pointer;
       box-shadow: 0 10px 25px rgba(230, 57, 70, 0.5);
       transition: all 0.35s ease;
+      width: auto;
     }
 
-    .contact-form button:hover {
+    .contact-form button:hover,
+    .contact-form button:active {
       background: #fff;
       color: #e63946;
       box-shadow: 0 12px 30px rgba(244, 162, 97, 0.8);
-      transform: scale(1.07);
+      transform: scale(1.05);
     }
 
     footer {
       background: #e63946;
       color: #fff;
       text-align: center;
-      padding: 1.7rem 1rem;
+      padding: clamp(1.2rem, 4vw, 2rem) 1rem;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       letter-spacing: 1px;
       box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.25);
     }
@@ -208,7 +221,7 @@
       position: absolute;
       top: 10px;
       right: 20px;
-      width: 230px;
+      width: clamp(80px, 15vw, 230px);
       height: auto;
       mix-blend-mode: multiply;
       border: none;
@@ -218,30 +231,32 @@
     .menu-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 24px;
+      gap: clamp(1rem, 3vw, 24px);
       justify-content: center;
     }
 
     .menu-item {
-      flex: 1 1 280px;
+      flex: 1 1 260px;
+      max-width: 100%;
       background: #fff3e0;
-      border-radius: 18px;
-      padding: 18px 22px;
+      border-radius: clamp(10px, 4vw, 18px);
+      padding: clamp(0.8rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.8rem);
       box-shadow: 0 4px 12px rgba(209, 73, 91, 0.15);
       cursor: default;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .menu-item:hover {
+    .menu-item:hover,
+    .menu-item:active {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(209, 73, 91, 0.25);
     }
 
     .menu-item h3 {
-      margin: 0 0 8px;
+      margin: 0 0 clamp(0.4rem, 2vw, 1rem);
       color: #d1495b;
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: clamp(1rem, 3vw, 1.5rem);
       font-family: 'Fredoka One', cursive;
     }
 
@@ -249,44 +264,82 @@
       margin: 0;
       color: #3c1f00;
       font-weight: 600;
+      font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+    }
+
+    /* Mobile-first responsive breakpoints */
+    @media (max-width: 1024px) {
+      main {
+        max-width: 90%;
+      }
     }
 
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
-      }
-
-      header {
-        font-size: 2.6rem;
-        padding: 2rem 1rem;
-      }
-
-      main {
-        padding: 1.8rem;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      h2 {
-        font-size: 2rem;
+        padding: 1rem;
       }
 
       .logo,
       .logo-right {
-        width: 100px;
+        width: clamp(60px, 12vw, 100px);
+        top: 15px;
+      }
+
+      section {
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header {
+        padding-top: 100px;
+      }
+
+      .logo,
+      .logo-right {
+        top: 10px;
       }
     }
 
     @media (max-width: 480px) {
       header {
-        font-size: 1.8rem;
+        padding: 5rem 1rem 2rem;
       }
 
       .logo,
       .logo-right {
+        width: 70px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .logo,
+      .logo-right {
         display: none;
+      }
+
+      header {
+        padding: 2.5rem 1rem;
+      }
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      nav ul li a {
+        margin: 0.5rem;
+      }
+      
+      nav ul li a {
+        min-height: 48px;
+        min-width: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-form button {
+        min-height: 48px;
       }
     }
 
